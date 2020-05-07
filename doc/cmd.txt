@@ -1,0 +1,15 @@
+
+mysql> select * from casbin_rule;
++--------+--------+-----------+--------+------+------+------+
+| p_type | v0     | v1        | v2     | v3   | v4   | v5   |
++--------+--------+-----------+--------+------+------+------+
+| p      | admin  | /news/:id | GET    | NULL | NULL | NULL |
+| p      | editor | /news     | POST   | NULL | NULL | NULL |
+| p      | editor | /news/:id | PUT    | NULL | NULL | NULL |
+| p      | admin  | /news/:id | DELETE | NULL | NULL | NULL |
+| p      | admin  | /news     | GET    | NULL | NULL | NULL |
+| g      | uid:1  | admin     | NULL   | NULL | NULL | NULL |
+| g      | uid:1  | editor    | NULL   | NULL | NULL | NULL |
++--------+--------+-----------+--------+------+------+------+
+7 rows in set (0.01 sec)
+mysql>

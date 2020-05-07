@@ -6,16 +6,16 @@ application:
   port: 8088
 
 mysql:
-  host: 127.0.0.1
+  host: 192.168.174.148
   port: 3306
-  user: joy
-  pwd:
-  db: casbin
+  user: root
+  pwd: root
+  db: casbin2
   prefix:
 
 log:
   path:
-  level: info # 合法选项 "panic" "fatal" "error" "warn" "warning" "info" "debug" "trace"
+  level: trace # 合法选项 "panic" "fatal" "error" "warn" "warning" "info" "debug" "trace"
 
 casbin:
-  path: G:\www-go\casbin-demo\rbac_model.conf
+  path:
