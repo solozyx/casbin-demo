@@ -6,16 +6,16 @@ application:
   port: 8088
 
 mysql:
-  host: 127.0.0.1
+  host: 192.168.174.148
   port: 3306
-  user: joy
-  pwd:
-  db: casbin
+  user: root
+  pwd: root
+  db: casbin1
   prefix:
 
 log:
   path:
-  level: warning # 合法选项 "panic" "fatal" "error" "warn" "warning" "info" "debug" "trace"
+  level: debug # 合法选项 "panic" "fatal" "error" "warn" "warning" "info" "debug" "trace"
 
 casbin:
   path:

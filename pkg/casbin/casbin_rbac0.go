@@ -1,27 +1,32 @@
 package casbin
 
 import (
-	"casbindemo/config"
-	"casbindemo/logger"
-	"casbindemo/model"
+	"os"
+
 	"github.com/casbin/casbin/v2"
 	"github.com/casbin/gorm-adapter/v2"
 	"github.com/gin-gonic/gin"
-	"os"
+
+	"casbindemo/conf"
+	"casbindemo/config"
+	"casbindemo/logger"
+	"casbindemo/model"
 )
 
 // 鉴权
 func Authentication(ctx *gin.Context) {
-	data, _ := ctx.Get("role")
+	data, _ := ctx.Get(conf.Role)
 	role := data.(string)
+
 	e, err := initCasbin()
 	if err != nil {
-		logger.Logger.Panic("初始化 Casbin 出现错误：", err)
+		logger.Logger.Panic("初始化 Casbin error=", err)
 	}
+
 	ok, err := e.Enforce(role, ctx.FullPath(), ctx.Request.Method)
 	logger.Logger.Warnf("sub:[%s] obj:[%s] act:[%s] res:[%t]", role, ctx.FullPath(), ctx.Request.Method, ok)
 	if err != nil {
-		logger.Logger.Panic("执行 e.Enforce() 出错：", err)
+		logger.Logger.Panic("执行 casbin Enforce() error=", err)
 	}
 	if ok {
 		ctx.Next()

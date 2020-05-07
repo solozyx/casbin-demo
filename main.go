@@ -1,12 +1,13 @@
 package main
 
 import (
+	"flag"
+	"fmt"
+
 	"casbindemo/config"
 	"casbindemo/logger"
 	"casbindemo/model"
 	"casbindemo/route"
-	"flag"
-	"fmt"
 )
 
 func main() {

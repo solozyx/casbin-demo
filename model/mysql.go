@@ -1,12 +1,14 @@
 package model
 
 import (
-	"casbindemo/config"
-	"casbindemo/logger"
 	"fmt"
+	"log"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"log"
+
+	"casbindemo/config"
+	"casbindemo/logger"
 )
 
 var (
@@ -22,21 +24,24 @@ func Setup() {
 		config.MysqlConfig.Port,
 		config.MysqlConfig.Db))
 	if err != nil {
-		log.Panic(fmt.Sprintf("连接数据库错误 ：%s", err))
+		log.Panic(fmt.Sprintf("连接数据库 error=%v", err.Error()))
 	}
+
 	gorm.DefaultTableNameHandler = func(db *gorm.DB, defaultTableName string) string {
 		return config.MysqlConfig.Prefix + defaultTableName
 	}
+
 	Db.SingularTable(true)
 	Db.LogMode(true)
 	Db.SetLogger(logger.Logger)
 	Db.DB().SetMaxIdleConns(10)
 	Db.DB().SetMaxOpenConns(10)
-	AutoMigrate()
+
+	autoMigrate()
 }
 
 // 自动创建表结构
-func AutoMigrate() {
+func autoMigrate() {
 	Db.Set("gorm:table_options", "ENGINE=InnoDB CHARSET=utf8mb4 COMMENT 'casbin 策略'").
 		AutoMigrate(&CasbinRule{})
 }

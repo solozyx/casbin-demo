@@ -1,0 +1,85 @@
+
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| casbin             |
+| gin-admin          |
+| gorm               |
+| lottery            |
+| mysql              |
+| object_storage     |
+| performance_schema |
+| red_envelope       |
+| rent_house         |
+| sakila             |
+| secondchase        |
+| sys                |
+| video_server       |
+| wxshop             |
++--------------------+
+15 rows in set (0.19 sec)
+mysql>
+
+mysql> CREATE DATABASE `casbin1` DEFAULT CHARACTER SET = `utf8mb4`;
+Query OK, 1 row affected (0.24 sec)
+mysql>
+
+mysql> use casbin1;
+Database changed
+mysql>
+
+CREATE TABLE `casbin_rule`  (
+  `p_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `v0` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `v1` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `v2` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `v3` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `v4` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `v5` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = 'casbin 策略' ROW_FORMAT = Dynamic;
+
+
+mysql> CREATE TABLE `casbin_rule`  (
+    ->   `p_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+    ->   `v0` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+    ->   `v1` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+    ->   `v2` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+    ->   `v3` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+    ->   `v4` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+    ->   `v5` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL
+    -> ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = 'casbin 策略' ROW_FORMAT = Dynamic;
+Query OK, 0 rows affected (0.59 sec)
+mysql>
+
+mysql> show columns from casbin_rule;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| p_type | varchar(100) | YES  |     | NULL    |       |
+| v0     | varchar(100) | YES  |     | NULL    |       |
+| v1     | varchar(100) | YES  |     | NULL    |       |
+| v2     | varchar(100) | YES  |     | NULL    |       |
+| v3     | varchar(100) | YES  |     | NULL    |       |
+| v4     | varchar(100) | YES  |     | NULL    |       |
+| v5     | varchar(100) | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+7 rows in set (0.11 sec)
+mysql>
+
+
+mysql> select * from casbin_rule;
++--------+-------+-----------+--------+------+------+------+
+| p_type | v0    | v1        | v2     | v3   | v4   | v5   |
++--------+-------+-----------+--------+------+------+------+
+| p      | admin | /news/:id | GET    | NULL | NULL | NULL |
+| p      | admin | /news     | POST   | NULL | NULL | NULL |
+| p      | admin | /news/:id | PUT    | NULL | NULL | NULL |
+| p      | admin | /news/:id | DELETE | NULL | NULL | NULL |
+| p      | admin | /news     | GET    | NULL | NULL | NULL |
++--------+-------+-----------+--------+------+------+------+
+5 rows in set (0.02 sec)
+mysql>
