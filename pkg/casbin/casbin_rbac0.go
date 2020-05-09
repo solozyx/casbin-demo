@@ -53,5 +53,18 @@ func initCasbin() (e *casbin.Enforcer, err error) {
 	if err = e.LoadPolicy(); err != nil {
 		return
 	}
+
+	// logrus.Debugf("initCasbin *casbin.Enforcer")
+	// logrus.Debugf("e=%+v",e)
+	// logrus.Debugf("e.GetModel()=%+v",e.GetModel())
+
+	// logrus.Debugf("e.GetModel()[e][e]=%+v",e.GetModel()["e"]["e"])
+	// logrus.Debugf("e.GetModel()[g][g]=%+v",e.GetModel()["g"]["g"])
+	// logrus.Debugf("e.GetModel()[m][m]=%+v",e.GetModel()["m"]["m"])
+	// logrus.Debugf("e.GetModel()[p][p]=%+v",e.GetModel()["p"]["p"])
+	// logrus.Debugf("e.GetModel()[r][r]=%+v",e.GetModel()["r"]["r"])
+
+	// logrus.Debugf("e.GetAdapter()=%+v",e.GetAdapter())
+
 	return
 }

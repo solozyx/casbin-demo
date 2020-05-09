@@ -7,9 +7,12 @@ import (
 	"casbindemo/route"
 	"flag"
 	"fmt"
+	"github.com/sirupsen/logrus"
 )
 
 func main() {
+	logrus.SetLevel(logrus.DebugLevel)
+
 	flag.Parse()
 
 	config.Setup()
