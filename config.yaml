@@ -10,7 +10,7 @@ mysql:
   port: 3306
   user: root
   pwd: root
-  db: casbin3
+  db: casbin4
   prefix:
 
 log:

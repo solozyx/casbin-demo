@@ -1,21 +1,6 @@
-/*
- Navicat Premium Data Transfer
 
- Source Server         : A-localhost-mysql8.0
- Source Server Type    : MySQL
- Source Server Version : 80015
- Source Host           : localhost:3306
- Source Schema         : casbin
-
- Target Server Type    : MySQL
- Target Server Version : 80015
- File Encoding         : 65001
-
- Date: 28/04/2020 15:45:50
-*/
-
-CREATE DATABASE `casbin3` DEFAULT CHARACTER SET = `utf8mb4`;
-use `casbin3`;
+CREATE DATABASE `casbin4` DEFAULT CHARACTER SET = `utf8mb4`;
+use `casbin4`;
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
@@ -37,15 +22,15 @@ CREATE TABLE `casbin_rule`  (
 -- ----------------------------
 -- Records of casbin_rule
 -- ----------------------------
-INSERT INTO `casbin_rule` VALUES ('p', 'admin', '/news/:id', 'GET', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES ('p', 'editor', '/news', 'POST', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES ('p', 'editor', '/news/:id', 'PUT', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES ('p', 'admin', '/news/:id', 'DELETE', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES ('p', 'admin', '/news', 'GET', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES ('g', 'uid:1', 'admin', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES ('g', 'uid:1', 'editor', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES ('g', 'root', 'admin', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES ('g', 'root', 'editor', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES ('p', '1', '/news/:id', 'GET', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES ('p', '2', '/news', 'POST', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES ('p', '2', '/news/:id', 'PUT', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES ('p', '1', '/news/:id', 'DELETE', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES ('p', '1', '/news', 'GET', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES ('g', 'uid:1', '1', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES ('g', 'uid:1', '2', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES ('g', 'root', '1', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES ('g', 'root', '2', NULL, NULL, NULL, NULL);
 INSERT INTO `casbin_rule` VALUES ('g', 'uid:2', 'root', NULL, NULL, NULL, NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;
