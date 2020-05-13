@@ -12,7 +12,8 @@ mysql:
   pwd: root
   # db: casbin3
   # db: casbin4
-  db: casbin5
+  # db: casbin5
+   db: casbin6
   prefix:
 
 log:
