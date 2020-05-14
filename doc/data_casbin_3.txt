@@ -1,0 +1,26 @@
+
+{"level":"debug","msg":"initCasbin *casbin.Enforcer","time":"2020-05-14T15:48:09+08:00"}
+{"level":"debug","msg":"e=\u0026{modelPath:C:\\blockchainenv\\githubProj\\casbin\\1\\casbin-demo/rbac_model.conf model:map[e:map[e:0xc00004e8a0] g:map[g:0xc00004e7e0] m:map[m:0xc00004e960] p:map[p:0xc00004ea80] r:map[r:0xc00004ea20]] fm:map[globMatch:0xa41b90 ipMatch:0xa41980 keyMatch:0xa40180 keyMatch2:0xa40590 keyMatch3:0xa409a0 keyMatch4:0xa413a0 regexMatch:0xa415b0] eft:0x11c86c0 adapter:0xc000328410 watcher:\u003cnil\u003e rm:0xc000004d80 enabled:true autoSave:true autoBuildRoleLinks:true autoNotifyWatcher:true}","time":"2020-05-14T15:48:09+08:00"}
+{"level":"debug","msg":"e.GetModel()=map[e:map[e:0xc00004e8a0] g:map[g:0xc00004e7e0] m:map[m:0xc00004e960] p:map[p:0xc00004ea80] r:map[r:0xc00004ea20]]","time":"2020-05-14T15:48:09+08:00"}
+{"level":"debug","msg":"e.GetModel()[e][e]=\u0026{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:\u003cnil\u003e}","time":"2020-05-14T15:48:09+08:00"}
+{"level":"debug","msg":"e.GetModel()[g][g]=\u0026{Key:g Value:_, _ Tokens:[]
+    Policy:[
+        [3 1]
+        [3 2]
+    ]
+RM:0xc000004d80}","time":"2020-05-14T15:48:09+08:00"}
+
+{"level":"debug","msg":"e.GetModel()[m][m]=\u0026{Key:m Value:g(r_sub, p_sub) \u0026\u0026 keyMatch2(r_obj, p_obj) \u0026\u0026 r_act == p_act Tokens:[] Policy:[] RM:\u003cnil\u003e}","time":"2020-05-14T15:48:09+08:00"}
+{"level":"debug","msg":"e.GetModel()[p][p]=\u0026{Key:p Value:sub, obj, act Tokens:[p_sub p_obj p_act]
+    Policy:[
+        [1 /news/:id GET]
+        [2 /news POST]
+        [2 /news/:id PUT]
+        [1 /news/:id DELETE]
+        [1 /news GET]
+    ]
+    RM:\u003cnil\u003e}","time":"2020-05-14T15:48:09+08:00"}
+{"level":"debug","msg":"e.GetModel()[r][r]=\u0026{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:\u003cnil\u003e}","time":"2020-05-14T15:48:09+08:00"}
+{"level":"debug","msg":"e.GetAdapter()=\u0026{tablePrefix: driverName: dataSourceName: dbSpecified:false db:0xc0003a8340 isFiltered:false}","time":"2020-05-14T15:48:09+08:00"}
+[GIN] 2020/05/14 - 15:48:09 | 200 |      101.46ms |             ::1 | POST     "/news?="
+

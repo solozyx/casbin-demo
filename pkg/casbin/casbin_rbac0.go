@@ -15,6 +15,7 @@ import (
 func Authentication(ctx *gin.Context) {
 	data, _ := ctx.Get("role")
 	role := data.(string)
+
 	e, err := initCasbin()
 	if err != nil {
 		logger.Logger.Panic("初始化 Casbin 出现错误：", err)

@@ -12,6 +12,7 @@ import (
 
 func main() {
 	logrus.SetLevel(logrus.DebugLevel)
+	logrus.SetFormatter(&logrus.JSONFormatter{})
 
 	flag.Parse()
 
